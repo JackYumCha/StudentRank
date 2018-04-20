@@ -9,7 +9,8 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "api": "mvcng -s \"..\\AzureMLProxy\\AzureMLProxy\" -p \"..\\AzureMLProxy\\AzureMLProxy\\AzureMLProxy.csproj\" -t src\\app\\services\\mvc-api -a \"AzureMLProxy\" "
+        "api": "mvcng -s \"..\\AzureMLProxy\\AzureMLProxy\" -p \"..\\AzureMLProxy\\AzureMLProxy\\AzureMLProxy.csproj\" -t src\\app\\services\\mvc-api -a \"AzureMLProxy\" ",
+        "deploy": "node \"node_modules/nggitres/index.js\" \"dist\" \"../AzureMLProxy/AzureMLProxy/wwwroot\" \"../Versions\" \"https://rawgit.com/JackYumCha/StudentRank/master/Versions\" "
     },
     "private": true,
     "dependencies": {
@@ -24,7 +25,8 @@
         "@angular/router": "^5.2.0",
         "core-js": "^2.4.1",
         "rxjs": "^5.5.6",
-        "zone.js": "^0.8.19"
+        "zone.js": "^0.8.19",
+        "nggitres": "1.0.0"
     },
     "devDependencies": {
         "@angular/cli": "~1.7.4",
