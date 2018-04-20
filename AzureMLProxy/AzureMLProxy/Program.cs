@@ -25,6 +25,7 @@ namespace AzureMLProxy
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls("http://*:6888")
                 .Build();
     }
 }

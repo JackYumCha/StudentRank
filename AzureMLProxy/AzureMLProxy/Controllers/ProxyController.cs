@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,10 +26,11 @@ namespace AzureMLProxy.Controllers
             using(HttpClient httpClient = new HttpClient())
             {
                 httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {_azureMLRequestOptions.Key}");
-                httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
-                var response = await httpClient.PostAsync(_azureMLRequestOptions.Url, new StringContent(JsonConvert.SerializeObject(azureMLRankRequest)));
+                var content = new StringContent(JsonConvert.SerializeObject(azureMLRankRequest), Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync(_azureMLRequestOptions.Url, content);
                 var json = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<AzureMLRankResponse>(json);
+                var result = JsonConvert.DeserializeObject<AzureMLRankResponse>(json);
+                return result;
             }
         }
     }

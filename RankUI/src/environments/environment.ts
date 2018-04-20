@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  azureMlProxyUrl: ''
+  azureMlProxyUrl: 'http://localhost:6888/'
 };

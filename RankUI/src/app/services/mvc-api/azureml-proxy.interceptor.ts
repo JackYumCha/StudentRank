@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
 const TEST_SERVER = '<AzureMLProxy>';
 
 @Injectable()
-export class JobInterceptor implements HttpInterceptor {
+export class AzureMlProxyInterceptor implements HttpInterceptor {
     constructor() {
     }
 
@@ -17,7 +17,7 @@ export class JobInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
         if(req.url.includes(TEST_SERVER)){
             req = req.clone({
-                url: req.url.replace(TEST_SERVER, environment.jobServerUrl)
+                url: req.url.replace(TEST_SERVER, environment.azureMlProxyUrl)
             });
         }
         return next.handle(req);

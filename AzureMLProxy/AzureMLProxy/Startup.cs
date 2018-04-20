@@ -87,13 +87,14 @@ namespace AzureMLProxy
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseCors(CorsPolicy);
+                
             }
 
-            app.UseSwagger();
-            app.UseSwaggerUI(setup => setup.SwaggerEndpoint($"/swagger/{SwaggerApiName}/swagger.json", "Rank API"));
+            app.UseCors(CorsPolicy);
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseSwagger();
+            app.UseSwaggerUI(setup => setup.SwaggerEndpoint($"/swagger/{SwaggerApiName}/swagger.json", "Rank API"));
             app.UseMvc(routes =>
             {
                 routes.MapSpaFallbackRoute("spaFallback", new { controller = "Home", action = "Spa" });
