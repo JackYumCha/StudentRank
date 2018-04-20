@@ -22,6 +22,8 @@ export class PredictRankService {
             }
         };
 
+        let headers: Headers = <any>{};
+
         return this.http.post(predict_url, query,{
             headers:<any>{
                 //'Content-Type': 'application/json',
