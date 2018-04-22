@@ -14,6 +14,7 @@ using Autofac.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 
+
 namespace StudentRank
 {
     public class Startup
@@ -101,4 +102,7 @@ namespace StudentRank
 
         }
     }
+
+
+
 }

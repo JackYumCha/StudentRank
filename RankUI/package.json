@@ -9,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "mvcng -s \"..\\AzureMLProxy\\AzureMLProxy\" -p \"..\\AzureMLProxy\\AzureMLProxy\\AzureMLProxy.csproj\" -t src\\app\\services\\mvc-api -a \"AzureMLProxy\" ",
-    "deploy": "node \"node_modules/nggitres/index.js\" \"dist\" \"../AzureMLProxy/AzureMLProxy/wwwroot\" \"../Versions\" \"https://rawgit.com/JackYumCha/StudentRank/master/Versions\" "
+    "api": "mvcng -s \"..\\RankAPI\\RankAPI\" -p \"..\\RankAPI\\RankAPI\\RankAPI.csproj\" -t src\\app\\services\\mvc-api -a \"RankAPI\" ",
+    "deploy": "node \"node_modules/nggitres/index.js\" \"dist\" \"../RankAPI/RankAPI/wwwroot\" \"../Versions\" \"https://rawgit.com/JackYumCha/StudentRank/master/Versions\" "
   },
   "private": true,
   "dependencies": {
