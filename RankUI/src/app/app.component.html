@@ -5,8 +5,10 @@
   </h1>
 </div>
 <div>
-
-  <input type="number" name="score" [ngModel]="score"/>
+  <input type="number" name="score" [(ngModel)]="score"/>
   <button (click)="click()">Predict</button>
 </div>
 
+<div *ngFor="let result of results">
+  Score: {{result.score}} Rank: {{result.rank}}
+</div>

@@ -1,5 +1,5 @@
-import { PredictRankService } from './predict-rank.service';
 import { Component } from '@angular/core';
+import { ProxyService } from './services/mvc-api/services/RankAPI.Controllers.Proxy.Service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +8,43 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor(private predictService: PredictRankService){
+  constructor(private proxyService: ProxyService){
 
   }
 
   score: number = 80;
+  results: {
+    score: number,
+    rank: number
+  }[] = [];
+
   click(){
-    this.predictService.PredictRank(this.score).subscribe(
-      response =>{
-        console.log(response.toString());
-      }
-    );
+    this.proxyService.Infer({
+      "Inputs": {
+        "input1": {
+          "ColumnNames": [
+            "rank",
+            "score"
+          ],
+          "Values": [
+            [
+              "0",
+              `${this.score}`
+            ]
+          ]
+        }
+      },
+      "GlobalParameters": {}
+    }).subscribe((res)=>{
+      console.log(res);
+      
+      let rank: number = parseInt(res.Results.output1.value.Values[0][2]);
+      this.results.push(
+        {
+          score: this.score,
+          rank: rank
+        }
+      );
+    });
   }
 }
