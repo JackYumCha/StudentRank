@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using MvcAngular.Generator;
 
 namespace RankAPI
 {
@@ -14,6 +15,7 @@ namespace RankAPI
     {
         public static void Main(string[] args)
         {
+            if()
             BuildWebHost(args).Run();
         }
 
