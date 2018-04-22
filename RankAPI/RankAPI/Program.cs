@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using MvcAngular.Generator;
 using Microsoft.Extensions.Logging;
 
 namespace RankAPI

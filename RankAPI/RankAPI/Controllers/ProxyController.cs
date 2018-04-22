@@ -16,7 +16,7 @@ namespace RankAPI
     public class ProxyController : Controller
     {
         private readonly AzureMLRequestOptions _azureMLRequestOptions;
-        private readonly AzureMLRequestOptions _logger;
+        private readonly ILogger _logger;
         public ProxyController(AzureMLRequestOptions azureMLRequestOptions, ILogger logger)
         {
             _azureMLRequestOptions = azureMLRequestOptions;
