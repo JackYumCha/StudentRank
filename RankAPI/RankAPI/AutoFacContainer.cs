@@ -22,6 +22,7 @@ namespace RankAPI
 
             ContainerBuilder = new ContainerBuilder();
 
+            //从APPsetting中获取serilogOptions中获取值.
             var serilogOptions = Configuration.GetSection(nameof(SerilogOptions)).Get<SerilogOptions>();
 
             LoggerConfiguration loggerConfiguration = new LoggerConfiguration();

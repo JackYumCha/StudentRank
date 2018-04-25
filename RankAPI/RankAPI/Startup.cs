@@ -39,7 +39,7 @@ namespace RankAPI
             AutoFacContainer autoFacContainer = new AutoFacContainer();
 
             ContainerBuilder builder = autoFacContainer.ContainerBuilder;
-
+            //前后端不在一个domain上用cors
             services.AddCors(options =>
                     options.AddPolicy(
                         CorsPolicy,
@@ -50,9 +50,10 @@ namespace RankAPI
                                 .AllowAnyHeader()
                         )
                 );
-
+            //services.addMvc()主要是controller可以起作用.
             services.AddMvc().AddJsonOptions(json =>
-            {
+            {   
+                //error handler
                 json.SerializerSettings.Error = OnJsonError;
                 json.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
@@ -85,7 +86,8 @@ namespace RankAPI
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
-            {
+            {   
+                //如果后端出错
                 app.UseDeveloperExceptionPage();
 
             }
